@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Share Your Link</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>Share Your Link!</h1>
+        <p>Send this link to a friend:</p>
+        <input type='text' value='{{ share_url }}' readonly size='50' class='share-link-input'>
+    </div>
+</body>
+</html>

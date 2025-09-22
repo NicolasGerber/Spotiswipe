@@ -1,0 +1,41 @@
+<!DOCTYPE ahtml>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>SpotySwipe</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <div class="swipe-container">
+        <div class="playlist-header">
+            <img src="{{ playlist_cover_url }}" alt="Playlist Cover" class="playlist-cover">
+            <div>
+                <h2>{{ playlist_name }}</h2>
+                <p>Shared by: {{ sharer_name }}</p>
+            </div>
+        </div>
+        <h1>SpotySwipe</h1>
+        <div id="card-stack">
+            </div>
+        <div class="controls">
+            <button id="dislike-btn">❌</button>
+            <button id="like-btn">✅</button>
+        </div>
+        <div class="player-container">
+            <button id="play-pause-btn">▶️</button>
+            <input type="range" id="volume-slider" min="0" max="1" step="0.01" value="1">
+        </div>
+        <div id="login-prompt" style="display:none;">
+            <p>You need to log in to save songs!</p>
+            <a href="/login" class="button">Login with Spotify</a>
+        </div>
+    </div>
+
+    <script src="https://sdk.scdn.co/spotify-player.js"></script>
+    <script>
+        const tracks = {{ tracks|tojson }};
+        const linkId = "{{ link_id }}";
+    </script>
+    <script src="{{ url_for('static', filename='js/swipe.js') }}"></script>
+</body>
+</html>

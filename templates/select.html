@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Select a Playlist</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>Choose a Playlist to Share</h1>
+        <ul class="playlist-list">
+            {% for playlist in playlists %}
+            <li>
+                <a href="/generate-link/{{ playlist.id }}">
+                    <img src="{{ playlist.images[0].url if playlist.images else '' }}" alt="Playlist Cover" class="playlist-list-cover">
+                    <div class="playlist-list-info">
+                        <div class="playlist-name">{{ playlist.name }}</div>
+                        <div class="playlist-track-count">{{ playlist.tracks.total }} songs</div>
+                    </div>
+                </a>
+            </li>
+            {% endfor %}
+        </ul>
+    </div>
+</body>
+</html>
